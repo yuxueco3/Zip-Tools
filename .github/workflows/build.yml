@@ -19,8 +19,8 @@ jobs:
       - name: Build
         run: |
           CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_win32_x64.exe
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_linux_x64
           CGO_ENABLED=0 GOOS=linux GOARCH=loong64 go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_linux_loong64
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_linux_x64          
           CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_linux_arm64
           CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_linux_arm
           CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -trimpath -ldflags '-s -w --extldflags "-static -fpic"' -o file_zip_linux_386
@@ -52,8 +52,8 @@ jobs:
           prerelease: true
           files: |
             file_zip_win32_x64.exe
-            file_zip_linux_x64
             file_zip_linux_loong64
+            file_zip_linux_x64
             file_zip_linux_arm64
             file_zip_linux_arm
             file_zip_linux_386
